@@ -1,45 +1,69 @@
 # **A. Tugas Praktikum**
 1. Buat sebuah database dengan nama latihan2
+
+`create database latihan2;`
 ![d1](d/d1.png)
 
 2. Buat sebuah tabel dengan nama biodata (nama, alamat) didalam database latihan1!
 3. Tambahkan sebuah kolom keterangan (varchar 15), sebagai kolom terakhir
+
+```create table biodata (nama VARCHAR(50), alamat Text);```
+```alter table biodata add column keterangan varchar(15) after alamat;```
 ![d1](d/d2.png)
 
 4. Tambahkan kolom id int 11) di awal sebagai kolom pertama
+
+`alter table biodata add column id int(11) first;`
 ![d1](d/d3.png)
 
-5. Sisipkan sebuah kolom dengan nama phone (varchar 15) setelah
-kolom alamat
+5. Sisipkan sebuah kolom dengan nama phone (varchar 15) setelah kolom alamat
+
+`alter table biodata add column phone varchar(15) after alamat;`
 ![d1](d/d4.png)
 
 6. Ubah tipe data kolom id menjadi char(11)!
+
+```alter table biodata modify id char(11);```
 ![d1](d/d5.png)
 
 7. Ubah nama kolom phone menjadi hp (varchar 20)
+
+`alter table biodata change phone hp varchhar(15);`
 ![d1](d/d6.png)
 
 8. Tambahkan kolom email setelah kolom hp
+
+`alter table biodata add column email text after hp;`
 ![d1](d/d7.png)
 
 9. Hapus kolom keterangan dari tabel
+
+`alter table biodata drop keterangan;`
 ![d1](d/d8.png)
 
 10. Ganti nama tabel menjadi data_mahasiswa
+
+`alter table biodata rename to data_mahasiswa;`
 ![d1](d/d9.png)
 
 11. Ganti nama field id menjadi nim
+
+`alter table data_mahasiswa change id nim char(11);`
 ![d1](d/d10.png)
 
 12. Jadikan nim sebagai PRIMARY KEY
+
+`alter table data_mahasiswa add primary key (nim);`
 ![d1](d/d11.png)
 
 13. Jadikan kolom email sebagai UNIQUE KEY
+
+`alter table data_mahasiswa add unnique key (email);`
 ![d1](d/d12.png)
 
 # **B. Evaluasi dan Pertanyaan**
 ### 1. apa maksud int(11) ?
-Di MySQL, tipe data INTEGER dengan spesifikasi (11) menunjukkan bahwa kolom tersebut menyimpan nilai numerik bulat (integer) dengan panjang maksimum 11 digit. Panjang maksimum ini mencakup digit yang digunakan untuk menunjukkan tanda negatif (-) atau positif (+).
+Tipe data INTEGER dengan spesifikasi (11) menunjukkan bahwa kolom tersebut menyimpan nilai numerik bulat (integer) dengan panjang maksimum 11 digit. Panjang maksimum ini mencakup digit yang digunakan untuk menunjukkan tanda negatif (-) atau positif (+).
 
 Namun, sebenarnya spesifikasi panjang pada tipe data INTEGER di MySQL hanya merupakan layanan metadata semata. Artinya, nilai yang disimpan di dalam kolom integer tidak terbatas jumlah digitnya walaupun kita menentukan spesifikasi (11) pada kolom tersebut.
 
